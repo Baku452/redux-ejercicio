@@ -1,4 +1,9 @@
-import { ADD_VOTO, TOTAL_VOTOS, PERCENTAGE_VOTOS } from "./types"
+import {
+ ADD_VOTO,
+ TOTAL_VOTOS,
+ PERCENTAGE_VOTOS,
+ INDIVIDUAL_ALL,
+} from "./types"
 
 const initialState = {
  votos: [
@@ -29,6 +34,7 @@ const initialState = {
  ],
  suma: 0,
  percentage: false,
+ filter: 0,
 }
 
 function reducer(state = initialState, action) {
@@ -43,13 +49,10 @@ function reducer(state = initialState, action) {
    newVotos.map((item) => {
     return (item.cantVotosPer = (item.cantVotos / sumaState) * 100)
    })
-   //  newVotos[candidateId].cantVotosPer =
-   //   (newVotos[candidateId].cantVotos / addSuma) * 100
 
    return {
     ...state,
     votos: newVotos,
-    // suma: (state.suma += 1),
    }
   case TOTAL_VOTOS:
    const sumState = state.votos.reduce(function (suma, item) {
@@ -60,14 +63,14 @@ function reducer(state = initialState, action) {
     suma: sumState,
    }
   case PERCENTAGE_VOTOS:
-   const arrPercentage = state.votos.map((item) => {
-    return (item.cantVotosPer = (item.cantVotos / state.suma) * 100)
-   })
-   console.log(arrPercentage)
    return {
     ...state,
-    // votos: arrPercentage,
     percentage: action.payload,
+   }
+  case INDIVIDUAL_ALL:
+   return {
+    ...state,
+    filter: action.payload,
    }
   default:
    return {
