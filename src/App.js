@@ -1,5 +1,6 @@
 import "./App.css"
 import ListaBoton from "./components/ListaBoton"
+import TotalVotos from "./components/TotalVotos"
 import VotosIndividuales from "./components/VotosIndividuales"
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
   <div className="App">
    <ListaBoton></ListaBoton>
    <VotosIndividuales />
+   <TotalVotos />
   </div>
  )
 }

@@ -1,4 +1,4 @@
-import { useSelector, useDispatch } from "react-redux"
+import { useSelector } from "react-redux"
 
 const VotosIndividuales = () => {
  const votos = useSelector((state) => state.votos)
@@ -7,7 +7,7 @@ const VotosIndividuales = () => {
   <>
    {votos.map((item) => (
     <h2>
-     {item.cantVotos} | {item.label}
+     {item.cantVotos} | Votos: {item.label}
     </h2>
    ))}
   </>

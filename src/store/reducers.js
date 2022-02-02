@@ -23,6 +23,7 @@ const initialState = {
    cantVotos: 0,
   },
  ],
+ suma: 0,
 }
 
 function reducer(state = initialState, action) {
@@ -37,7 +38,15 @@ function reducer(state = initialState, action) {
     ...state,
     votos: newVotos,
    }
-
+  case TOTAL_VOTOS:
+   const sumState = state.votos.reduce(function (suma, item) {
+    return suma + item.cantVotos
+   }, 0)
+   console.log(sumState)
+   return {
+    ...state,
+    suma: sumState,
+   }
   default:
    return {
     ...state,
