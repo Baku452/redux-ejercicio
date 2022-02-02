@@ -8,6 +8,7 @@ export const addVotos = (id) => ({
 export const totalVotos = () => ({
  type: TOTAL_VOTOS,
 })
-export const percentageVotos = () => ({
+export const percentageVotos = (value) => ({
  type: PERCENTAGE_VOTOS,
+ payload: value,
 })
