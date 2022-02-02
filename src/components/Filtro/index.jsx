@@ -18,6 +18,7 @@ const Filtro = () => {
    % Percentage
    <input
     type="radio"
+    defaultChecked
     onChange={(e) => handleChange(false)}
     value="numeric"
     name="type"

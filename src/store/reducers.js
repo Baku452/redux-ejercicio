@@ -39,11 +39,17 @@ function reducer(state = initialState, action) {
    )
    const newVotos = [...state.votos]
    newVotos[candidateId].cantVotos += 1
-   newVotos[candidateId].cantVotosPer =
-    (newVotos[candidateId].cantVotos / state.suma) * 100
+   const sumaState = (state.suma += 1)
+   newVotos.map((item) => {
+    return (item.cantVotosPer = (item.cantVotos / sumaState) * 100)
+   })
+   //  newVotos[candidateId].cantVotosPer =
+   //   (newVotos[candidateId].cantVotos / addSuma) * 100
+
    return {
     ...state,
     votos: newVotos,
+    // suma: (state.suma += 1),
    }
   case TOTAL_VOTOS:
    const sumState = state.votos.reduce(function (suma, item) {
@@ -54,8 +60,13 @@ function reducer(state = initialState, action) {
     suma: sumState,
    }
   case PERCENTAGE_VOTOS:
+   const arrPercentage = state.votos.map((item) => {
+    return (item.cantVotosPer = (item.cantVotos / state.suma) * 100)
+   })
+   console.log(arrPercentage)
    return {
     ...state,
+    // votos: arrPercentage,
     percentage: action.payload,
    }
   default:
