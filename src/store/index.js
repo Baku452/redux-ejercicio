@@ -1,6 +1,6 @@
 import { createStore } from "redux"
 import { composeWithDevTools } from "redux-devtools-extension"
+import { voteReducer } from "./reducers/votesReducer"
 
-import reducer from "./reducers"
 
-export default createStore(reducer, composeWithDevTools())
+export default createStore(voteReducer, composeWithDevTools())

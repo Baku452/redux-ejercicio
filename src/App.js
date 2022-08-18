@@ -6,12 +6,12 @@ import VotosIndividuales from "./components/VotosIndividuales"
 
 function App() {
  return (
-  <div className="App">
-   <ListaBoton></ListaBoton>
-   <VotosIndividuales />
-   <TotalVotos />
-   <Filtro />
-  </div>
+    <div className="App">
+        <ListaBoton />
+        <VotosIndividuales />
+        <TotalVotos />
+        <Filtro />
+    </div>
  )
 }
 
